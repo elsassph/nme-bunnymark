@@ -11,6 +11,20 @@ This project aims to show how NME rocks to target native platforms: iOS/Android/
  - image distortion using a triangles grid (background)
  - a jumping pirate
 
+**Building:**
+
+Install and configure NME, preferrably using the all-in-one installer from haxenme.org, 
+then run for the target you want (note: 'nme build' will only build):
+
+    nme test build.nmml cpp
+    nme test build.nmml android
+    nme test build.nmml iphone -simulator
+
+For iOS device testing, you must build & run from Xcode:
+
+    nme update build.nmml ios
+    open bin/iphone/MyApplication.xcodeproj
+
 **Credits:**
 
 Initial BunnyMark was [created by Iain Lobb][3] then [ported to haxe-NME by Joshua Granick][4].

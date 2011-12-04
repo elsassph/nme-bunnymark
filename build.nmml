@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+  <app title="BunnyMark" main="BunnyMark" package="aze.nme" version="1.0.0" company="NME" />
+  
+  <set name="fullscreen" if="target_ios" />
+  <set name="fullscreen" if="target_android" />
+  <set name="fullscreen" if="target_webos" />
+
+  <window width="480" height="640" fps="60" resizable="true" />
+  <window width="0" height="0" orientation="portrait" if="fullscreen" />
+
+  <set name="BUILD_DIR" value="bin" />
+
+  <classpath name="src" />
+
+  <haxelib name="nme" />
+
+  <assets path="assets" include="*" exclude="nme.svg" />
+  
+  <icon name="assets/nme.svg" />
+
+  <ndll name="std" />
+  <ndll name="regexp" />
+  <ndll name="zlib" />
+  <ndll name="nme" haxelib="nme" />
+
+</project>

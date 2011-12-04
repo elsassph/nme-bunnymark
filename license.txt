@@ -1,0 +1,4 @@
+Blah blah blah MIT license blah do whatever you want with this sources.
+
+Except the images (bunny, grass and pirate) which belong to Iain Lobb:
+don't use without his agreement.

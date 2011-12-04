@@ -15,15 +15,7 @@ import nme.Lib;
 class BunnyMark extends Sprite 
 {
 	private var bg:Background;
-
-	public var fps(get_fps, set_fps):FPS;
-	private var _fps:FPS;
-	
-	function get_fps():FPS { return _fps; }
-	function set_fps(value:FPS):FPS 
-	{
-		return _fps = value;
-	}
+	private var fps:FPS;
 
 	function new()
 	{
@@ -55,11 +47,6 @@ class BunnyMark extends Sprite
 		fps.addEventListener(MouseEvent.CLICK, toggleFPS);
 
 		stage.addEventListener(Event.RESIZE, resize);
-		foo({ x:3 });
-	}
-
-	function foo( pt : { x : Null<Int>, y : Null<Int> }) {
-	    // ...
 	}
 
 	function resize(e) 

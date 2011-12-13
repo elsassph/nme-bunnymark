@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 
-  <app file="BunnyMark" title="BunnyMark" main="BunnyMark" package="aze.nme" version="1.0.0" company="NME" />
+  <app file="BunnyMark" title="BunnyMark" main="BunnyMark" package="aze.nme.bunnymark" version="1.0.0" company="NME" />
   
   <set name="fullscreen" if="target_ios" />
   <set name="fullscreen" if="target_android" />

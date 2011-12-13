@@ -33,6 +33,7 @@ class Background extends Sprite
 	function added(e) 
 	{
 		addEventListener(Event.ENTER_FRAME, enterFrame);
+		paint();
 	}
 
 	function enterFrame(e) 
@@ -44,7 +45,6 @@ class Background extends Sprite
 		var sh:Float = _height;
 		var kx:Float, ky:Float;
 		var ci:Int, ri:Int;
-		//trace(t);
 
 		for (j in 0...rows + 1)
 		{
@@ -66,7 +66,7 @@ class Background extends Sprite
 		_width = w;
 		_height = h;
 		build();
-		paint();
+		if (parent != null) paint();
 	}
 	
 	private function build():Void 
@@ -92,11 +92,7 @@ class Background extends Sprite
 				vertices[ci] = sw * kx; 
 				vertices[ci + 1] = sh * ky; 
 				uvt[ci] = uw * kx; 
-				uvt[ci + 1] = uh * ky; 
-				/*vertices.push(_width * kx);
-				vertices.push(_height * ky);
-				uvt.push(uw * kx);
-				uvt.push(uh * ky);*/
+				uvt[ci + 1] = uh * ky;
 			}
 		}
 		for (j in 0...rows)
@@ -121,7 +117,7 @@ class Background extends Sprite
 		graphics.clear();
 		graphics.beginBitmapFill(texture);
 		graphics.drawTriangles(vertices, indices, uvt);
-		//graphics.drawRect(0, 0, Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
+		//graphics.drawRect(0, 0, stage.stageWidth * 1.2, stage.stageHeight * 1.2); // flat
 		graphics.endFill();
 	}
 	

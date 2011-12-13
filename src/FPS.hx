@@ -14,7 +14,7 @@ class FPS extends TextField
       x = inX;
       y = inY;
       selectable = false;
-      defaultTextFormat = new TextFormat("Arial", 20, 0, true);
+      defaultTextFormat = new TextFormat("_sans", 20, 0, true);
       text = "FPS:";
       textColor = inCol;
       times = [];

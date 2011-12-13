@@ -33,7 +33,6 @@ class TileTest extends Sprite
 	var minX:Int;
 	var maxY:Int;
 	var minY:Int;
-	var grassAsset:BitmapData;
 	var bunnyAsset:BitmapData;
 	var pirate:Bitmap;
 	var tilesheet:Tilesheet;
@@ -48,7 +47,6 @@ class TileTest extends Sprite
 		incBunnies = 100;
 		numBunnies = 500;
 		
-		//grassAsset = Assets.getBitmapData("assets/grass.png");
 		bunnyAsset = Assets.getBitmapData("assets/wabbit_alpha.png");
 		pirate = new Bitmap(Assets.getBitmapData("assets/pirate.png"));
 		addChild(pirate);
@@ -79,7 +77,7 @@ class TileTest extends Sprite
 
 	function createCounter()
 	{
-		var format = new TextFormat("Arial", 20, 0, true);
+		var format = new TextFormat("_sans", 20, 0, true);
 		format.align = TextFormatAlign.RIGHT;
 
 		tf = new TextField();
@@ -121,11 +119,6 @@ class TileTest extends Sprite
 		maxX = Lib.current.stage.stageWidth;
 		maxY = Lib.current.stage.stageHeight;
 		tf.x = maxX - tf.width - 10;
-		
-		/*Lib.current.graphics.clear();
-		Lib.current.graphics.beginBitmapFill(grassAsset);
-		Lib.current.graphics.drawRect(0, 0, Lib.stage.stageWidth, Lib.stage.stageHeight);
-		Lib.current.graphics.endFill();*/
 	}
 	
 	function enterFrame(e) 

@@ -4,6 +4,7 @@ import nme.display.Bitmap;
 import nme.display.BitmapData;
 import nme.display.Graphics;
 import nme.display.Sprite;
+import nme.display.StageQuality;
 import nme.display.Tilesheet;
 import nme.display.BlendMode;
 import nme.events.Event;
@@ -43,9 +44,15 @@ class TileTest extends Sprite
 		super ();
 
 		gravity = 0.5;
-		smooth = true;
 		incBunnies = 100;
+		#if flash
+		smooth = false;
+		numBunnies = 100;
+		Lib.current.stage.quality = StageQuality.LOW;
+		#else
+		smooth = true;
 		numBunnies = 500;
+		#end
 		
 		bunnyAsset = Assets.getBitmapData("assets/wabbit_alpha.png");
 		pirate = new Bitmap(Assets.getBitmapData("assets/pirate.png"));
@@ -166,12 +173,12 @@ class TileTest extends Sprite
 			drawList[index + 5] = bunny.alpha;
 		}
 		
-		graphics.drawTiles (tilesheet, drawList, smooth, 
-			Graphics.TILE_SCALE | Graphics.TILE_ROTATION | Graphics.TILE_ALPHA);
+		tilesheet.drawTiles(graphics, drawList, smooth, 
+			Tilesheet.TILE_SCALE | Tilesheet.TILE_ROTATION | Tilesheet.TILE_ALPHA);
 		
 		var t = Lib.getTimer();
-		pirate.x = Std.int((Lib.stage.stageWidth - pirate.width) * (0.5 + 0.5 * Math.sin(t / 3000)));
-		pirate.y = Std.int(Lib.stage.stageHeight - pirate.height + 70 - 30 * Math.sin(t / 100));
+		pirate.x = Std.int((stage.stageWidth - pirate.width) * (0.5 + 0.5 * Math.sin(t / 3000)));
+		pirate.y = Std.int(stage.stageHeight - pirate.height + 70 - 30 * Math.sin(t / 100));
 	}
 	
 	

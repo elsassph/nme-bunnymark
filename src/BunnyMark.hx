@@ -38,9 +38,7 @@ class BunnyMark extends Sprite
 			bg.setSize(stage.stageWidth + 100, stage.stageHeight + 100);
 		addChild(bg);
 
-		#if cpp
 		addChild (new TileTest ());
-		#end
 
 		fps = new FPS();
 		addChild(fps);

@@ -52,8 +52,8 @@ class Background extends Sprite
 			for (i in 0...cols + 1)
 			{
 				ci = ri + i * 2;
-				kx = cast(i, Float) / cast(cols, Float) + Math.cos(t + i) * 0.02;
-				ky = cast(j, Float) / cast(rows, Float) + Math.sin(t + j + i) * 0.02;
+				kx = i / cols + Math.cos(t + i) * 0.02;
+				ky = j / rows + Math.sin(t + j + i) * 0.02;
 				vertices[ci] = sw * kx; 
 				vertices[ci + 1] = sh * ky; 
 			}
@@ -84,11 +84,11 @@ class Background extends Sprite
 		for (j in 0...rows + 1)
 		{
 			ri = j * (cols + 1) * 2;
-			ky = cast(j, Float) / cast(rows, Float);
+			ky = j / rows;
 			for (i in 0...cols + 1)
 			{
 				ci = ri + i * 2;
-				kx = cast(i, Float) / cast(cols, Float);
+				kx = i / cols;
 				vertices[ci] = sw * kx; 
 				vertices[ci + 1] = sh * ky; 
 				uvt[ci] = uw * kx; 

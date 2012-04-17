@@ -177,7 +177,7 @@ class TileTest extends Sprite
 		
 		tilesheet.drawTiles(graphics, drawList, smooth, 
 			Tilesheet.TILE_SCALE | Tilesheet.TILE_ROTATION | Tilesheet.TILE_ALPHA);
-		
+
 		var t = Lib.getTimer();
 		pirate.x = Std.int((Env.width - pirate.width) * (0.5 + 0.5 * Math.sin(t / 3000)));
 		pirate.y = Std.int(Env.height - pirate.height + 70 - 30 * Math.sin(t / 100));

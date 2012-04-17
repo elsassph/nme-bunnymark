@@ -2,8 +2,6 @@
 
 import nme.Assets;
 import nme.display.Sprite;
-import nme.display.StageAlign;
-import nme.display.StageScaleMode;
 import nme.events.Event;
 import nme.events.MouseEvent;
 import nme.Lib;
@@ -25,8 +23,8 @@ class BunnyMark extends Sprite
 
 	function addedToStage(e) 
 	{
-		stage.align = StageAlign.TOP_LEFT;
-		stage.scaleMode = StageScaleMode.NO_SCALE;
+		Env.setup();
+		stage.addEventListener(Event.RESIZE, resize);
 
 		bg = new Background();
 		bg.texture = Assets.getBitmapData("assets/grass.png");
@@ -34,8 +32,7 @@ class BunnyMark extends Sprite
 		bg.rows = 12;
 		bg.x = -50;
 		bg.y = -50;
-		if (stage.stageWidth > 0)
-			bg.setSize(stage.stageWidth + 100, stage.stageHeight + 100);
+		bg.setSize(Env.width + 100, Env.height + 100);
 		addChild(bg);
 
 		addChild (new TileTest ());
@@ -43,13 +40,13 @@ class BunnyMark extends Sprite
 		fps = new FPS();
 		addChild(fps);
 		fps.addEventListener(MouseEvent.CLICK, toggleFPS);
-
-		stage.addEventListener(Event.RESIZE, resize);
 	}
 
 	function resize(e) 
 	{
-		if (stage.stageWidth > stage.stageHeight)
+		if (bg == null) return;
+
+		if (Env.width > Env.height)
 		{
 			bg.cols = 12;
 			bg.rows = 8;
@@ -59,18 +56,27 @@ class BunnyMark extends Sprite
 			bg.cols = 8;
 			bg.rows = 12;
 		}
-		bg.setSize(stage.stageWidth + 100, stage.stageHeight + 100);
+		bg.setSize(Env.width + 100, Env.height + 100);
 	}
 
 	function toggleFPS(e)
 	{
 		stage.frameRate = 90 - stage.frameRate;
 	}
-	
-	
+
+	// entry point
 	public static function main()
 	{
-		Lib.current.addChild (new BunnyMark());	
+		#if iphone
+		haxe.Timer.delay(create, 10);
+		#else
+		create();
+		#end
+	}
+
+	private static function create()
+	{
+		Lib.current.addChild (new BunnyMark());
 	}
 	
 	

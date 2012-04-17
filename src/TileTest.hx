@@ -53,15 +53,17 @@ class TileTest extends Sprite
 		smooth = true;
 		numBunnies = 500;
 		#end
-		
+
 		bunnyAsset = Assets.getBitmapData("assets/wabbit_alpha.png");
-		pirate = new Bitmap(Assets.getBitmapData("assets/pirate.png"));
+		pirate = new Bitmap(Assets.getBitmapData("assets/pirate.png"), null, true);
+		pirate.scaleX = pirate.scaleY = Env.height / 768;
 		addChild(pirate);
 		
 		bunnies = new Array<Bunny>();
 		drawList = new Array<Float>();
 		tilesheet = new Tilesheet(bunnyAsset);
-		tilesheet.addTileRect(new Rectangle (0, 0, bunnyAsset.width, bunnyAsset.height));
+		tilesheet.addTileRect(
+			new Rectangle (0, 0, bunnyAsset.width, bunnyAsset.height));
 		
 		var bunny; 
 		for (i in 0...numBunnies) 
@@ -90,8 +92,8 @@ class TileTest extends Sprite
 		tf = new TextField();
 		tf.selectable = false;
 		tf.defaultTextFormat = format;
-		tf.text = "Bunnies:\n" + numBunnies;
-		tf.autoSize = TextFieldAutoSize.LEFT;
+		tf.width = 200;
+		tf.height = 60;
 		tf.x = maxX - tf.width - 10;
 		tf.y = 10;
 		addChild(tf);
@@ -117,14 +119,14 @@ class TileTest extends Sprite
 		}
 		numBunnies = more;
 
-		tf.text = "Bunnies:\n" + numBunnies;
 		stage_resize(null);
 	}
 	
 	function stage_resize(e) 
 	{
-		maxX = Lib.current.stage.stageWidth;
-		maxY = Lib.current.stage.stageHeight;
+		maxX = Env.width;
+		maxY = Env.height;
+		tf.text = "Bunnies:\n" + numBunnies;
 		tf.x = maxX - tf.width - 10;
 	}
 	
@@ -177,8 +179,8 @@ class TileTest extends Sprite
 			Tilesheet.TILE_SCALE | Tilesheet.TILE_ROTATION | Tilesheet.TILE_ALPHA);
 		
 		var t = Lib.getTimer();
-		pirate.x = Std.int((stage.stageWidth - pirate.width) * (0.5 + 0.5 * Math.sin(t / 3000)));
-		pirate.y = Std.int(stage.stageHeight - pirate.height + 70 - 30 * Math.sin(t / 100));
+		pirate.x = Std.int((Env.width - pirate.width) * (0.5 + 0.5 * Math.sin(t / 3000)));
+		pirate.y = Std.int(Env.height - pirate.height + 70 - 30 * Math.sin(t / 100));
 	}
 	
 	

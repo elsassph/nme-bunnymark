@@ -17,6 +17,7 @@ class FPS extends TextField
       defaultTextFormat = new TextFormat("_sans", 20, 0, true);
       text = "FPS:";
       textColor = inCol;
+      width = 150;
       times = [];
       addEventListener(Event.ENTER_FRAME, onEnter);
    }
@@ -29,7 +30,8 @@ class FPS extends TextField
          times.shift();
       if (visible)
       {
-         text = "FPS:\n" + times.length + "/" + Lib.current.stage.frameRate;
+         text = Env.width+"x"+Env.height+"x"+Env.dpi 
+            + "\nFPS:\n" + times.length + "/" + Lib.current.stage.frameRate;
       }
    }
 

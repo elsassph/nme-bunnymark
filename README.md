@@ -27,7 +27,7 @@ For iOS device testing, you must build & run from Xcode:
 
 **Credits:**
 
-Initial BunnyMark was [created by Iain Lobb][3] then [ported to haxe-NME by Joshua Granick][4].
+Initial BunnyMark was [created by Iain Lobb][3], then [ported to haxe-NME by Joshua Granick][4], then enhanced by Philippe Elsass.
 
 [1]: http://philippe.elsass.me/2011/11/nme-ready-for-the-show/
 [2]: http://haxenme.org
